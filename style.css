@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Pacifico&family=Tilt+Prism&family=Ubuntu:wght@300&display=swap'); 
+
+@import url('https://fonts.googleapis.com/css2?family=Fuggles&family=Lato:wght@300&family=Nunito+Sans:opsz,wght@6..12,600&family=Pacifico&family=Tilt+Prism&family=Ubuntu:wght@300&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Fuggles&family=Lato:wght@300&family=Mooli&family=Nunito+Sans:opsz,wght@6..12,600&family=Pacifico&family=Shadows+Into+Light&family=Tilt+Prism&family=Ubuntu:wght@300&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: #ADEFD1FF;
+}
+
+nav{
+    background-color: #00203FFF;
+    color: #ADEFD1FF;
+    height: 65px;
+    font-size: 27px;
+    display: flex;
+    align-items: center;
+    padding: 0 12px ;
+    font-family: Pacifico;
+}
+
+nav ul{
+    list-style-type: none;
+}
+
+.gameContainer{
+   
+    color: #00203FFF;
+    display: flex;
+    justify-content: center;
+    margin-top: 10vh;
+}
+
+.container{
+    display: grid;
+    grid-template-rows: repeat(3, 10vw);
+    grid-template-columns: repeat(3, 10vw);
+    font-family: Nunito Sans;
+    position: relative;
+}
+.box{
+    border: 3px solid black;
+    font-size: 8vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.box:hover{
+    background-color: rgb(135, 213, 178);
+}
+.info{
+    font-size: 22px;
+}
+.gameInfo{
+    padding: 0 34px;
+    font-family: Shadows Into Light;
+}
+.gameInfo h1{
+    font-size: 2.5rem;
+}   
+.imgbox img{
+    width: 0;
+    transition: width 1s ease-in-out;
+}
+.b-right-0{
+    border-right: 0;
+}
+.b-left-0{
+    border-left: 0;
+}
+.b-top-0{
+    border-top: 0;
+}
+.b-bottom-0{
+    border-bottom: 0;
+}
+#reset{
+    margin: 0 23px;
+    padding: 1px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    background-color: #00203FFF;
+    color: #ADEFD1FF;
+    font-family: Shadows Into Light;
+    font-size: 15px;
+    font-weight: bolder;
+}
+.line{
+    background-color: #00203FFF;
+    width: 0;
+    height: 0.5vh;
+    position: absolute;
+    transition: width 1s ease-in-out;
+
+}
+@media screen and (max-width: 950px)
+{
+  
+    .gameInfo{
+        margin-top: 34px;
+    }
+    .gameInfo h1{
+        font-size: 1.5rem;
+    }
+    .container { 
+        grid-template-rows: repeat(3, 20vw);
+        grid-template-columns: repeat(3, 20vw);
+    }
+}   
+
+     
