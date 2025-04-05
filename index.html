@@ -4,13 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tic Tac Toe</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="tictactoe.png" type="image/x-icon">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="shortcut icon" href="./tictactoe.png" type="image/x-icon">
+    <!-- Cache control for GitHub Pages -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
 </head>
 <body>
 <nav>
     <ul>
-        <li>(Tic-Tac-Toe).com</li>
+        <li>Tic-Tac-Toe</li>
     </ul>
 </nav>
 
@@ -26,11 +30,11 @@
         </div>
     </div>
     <div class="game-settings">
-        <label>
+        <label class="ai-toggle">
             <input type="checkbox" id="aiToggle"> Play vs AI
         </label>
         <div class="theme-selector">
-            <button data-theme="default">Default</button>
+            <button data-theme="default" class="active">Default</button>
             <button data-theme="dark">Dark</button>
             <button data-theme="nature">Nature</button>
         </div>
@@ -53,29 +57,29 @@
     <div class="gameArea">
         <div class="container">
             <div class="line"></div>
-            <div class="box b-left-0 b-top-0"><span class="boxText"></span></div>
-            <div class="box b-top-0"><span class="boxText"></span></div>
-            <div class="box b-right-0 b-top-0"><span class="boxText"></span></div>
-            <div class="box b-left-0"><span class="boxText"></span></div>
             <div class="box"><span class="boxText"></span></div>
-            <div class="box b-right-0"><span class="boxText"></span></div>
-            <div class="box b-bottom-0 b-left-0"><span class="boxText"></span></div>
-            <div class="box b-bottom-0"><span class="boxText"></span></div>
-            <div class="box b-right-0 b-bottom-0"><span class="boxText"></span></div>
+            <div class="box"><span class="boxText"></span></div>
+            <div class="box"><span class="boxText"></span></div>
+            <div class="box"><span class="boxText"></span></div>
+            <div class="box"><span class="boxText"></span></div>
+            <div class="box"><span class="boxText"></span></div>
+            <div class="box"><span class="boxText"></span></div>
+            <div class="box"><span class="boxText"></span></div>
+            <div class="box"><span class="boxText"></span></div>
         </div>
         <div class="gameInfo">
             <h1>Welcome to Tic Tac Toe</h1>
-            <div>
+            <div class="game-status">
                 <span class="info">Turn for <span id="currentPlayer">X</span></span>
                 <button id="reset">Reset Game</button>
             </div>
             <div class="imgbox">
-                <img src="Dancing.gif" alt="Congratulations">
+                <img src="./Dancing.gif" alt="Congratulations">
             </div>
         </div>
     </div>
 </div>
 
-<script src="logic.js"></script>
+<script src="./logic.js"></script>
 </body>
 </html>
