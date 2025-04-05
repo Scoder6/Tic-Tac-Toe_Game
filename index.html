@@ -8,14 +8,50 @@
     <link rel="shortcut icon" href="tictactoe.png" type="image/x-icon">
 </head>
 <body>
-   <nav>
+<nav>
     <ul>
         <li>(Tic-Tac-Toe).com</li>
     </ul>
-   </nav>
+</nav>
 
-   <div class="gameContainer">
-       <div class="container">
+<div class="settings-panel">
+    <div class="player-settings">
+        <div class="player-input">
+            <label for="playerX">Player X:</label>
+            <input type="text" id="playerX" placeholder="Enter name" value="Player X">
+        </div>
+        <div class="player-input">
+            <label for="playerO">Player O:</label>
+            <input type="text" id="playerO" placeholder="Enter name" value="Player O">
+        </div>
+    </div>
+    <div class="game-settings">
+        <label>
+            <input type="checkbox" id="aiToggle"> Play vs AI
+        </label>
+        <div class="theme-selector">
+            <button data-theme="default">Default</button>
+            <button data-theme="dark">Dark</button>
+            <button data-theme="nature">Nature</button>
+        </div>
+    </div>
+</div>
+
+<div class="gameContainer">
+    <div class="scoreboard">
+        <div class="player-score x-player">
+            <span id="playerXName">Player X</span>
+            <span class="score">0</span>
+        </div>
+        <div class="vs">vs</div>
+        <div class="player-score o-player">
+            <span id="playerOName">Player O</span>
+            <span class="score">0</span>
+        </div>
+    </div>
+
+    <div class="gameArea">
+        <div class="container">
             <div class="line"></div>
             <div class="box b-left-0 b-top-0"><span class="boxText"></span></div>
             <div class="box b-top-0"><span class="boxText"></span></div>
@@ -28,17 +64,18 @@
             <div class="box b-right-0 b-bottom-0"><span class="boxText"></span></div>
         </div>
         <div class="gameInfo">
-            <h1>Welcome to tic tac toe</h1>
+            <h1>Welcome to Tic Tac Toe</h1>
             <div>
-                <span class="info">Turn for X</span>
-                <button id="reset">Reset</button>
+                <span class="info">Turn for <span id="currentPlayer">X</span></span>
+                <button id="reset">Reset Game</button>
             </div>
-            <div class="imgbox"><img src="Dancing.gif" alt="Congratulations" >
+            <div class="imgbox">
+                <img src="Dancing.gif" alt="Congratulations">
             </div>
         </div>
-   </div>
+    </div>
+</div>
 
-   <script src="logic.js"></script>
-    
+<script src="logic.js"></script>
 </body>
 </html>

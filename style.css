@@ -1,116 +1,265 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Pacifico&family=Tilt+Prism&family=Ubuntu:wght@300&display=swap'); 
-
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Pacifico&family=Tilt+Prism&family=Ubuntu:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fuggles&family=Lato:wght@300&family=Nunito+Sans:opsz,wght@6..12,600&family=Pacifico&family=Tilt+Prism&family=Ubuntu:wght@300&display=swap');
-
 @import url('https://fonts.googleapis.com/css2?family=Fuggles&family=Lato:wght@300&family=Mooli&family=Nunito+Sans:opsz,wght@6..12,600&family=Pacifico&family=Shadows+Into+Light&family=Tilt+Prism&family=Ubuntu:wght@300&display=swap');
 
-*{
-    margin: 0;
-    padding: 0;
-}
-body{
-    background-color: #ADEFD1FF;
+:root {
+    --primary-bg: #ADEFD1FF;
+    --primary-text: #00203FFF;
+    --secondary-bg: #00203FFF;
+    --secondary-text: #ADEFD1FF;
+    --highlight-color: #2ecc71;
+    --border-color: #000000;
 }
 
-nav{
-    background-color: #00203FFF;
-    color: #ADEFD1FF;
+[data-theme="dark"] {
+    --primary-bg: #121212;
+    --primary-text: #ffffff;
+    --secondary-bg: #1e1e1e;
+    --secondary-text: #bb86fc;
+    --highlight-color: #bb86fc;
+    --border-color: #333333;
+}
+
+[data-theme="nature"] {
+    --primary-bg: #e8f5e9;
+    --primary-text: #2e7d32;
+    --secondary-bg: #2e7d32;
+    --secondary-text: #e8f5e9;
+    --highlight-color: #81c784;
+    --border-color: #1b5e20;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body {
+    background-color: var(--primary-bg);
+    color: var(--primary-text);
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+nav {
+    background-color: var(--secondary-bg);
+    color: var(--secondary-text);
     height: 65px;
     font-size: 27px;
     display: flex;
     align-items: center;
-    padding: 0 12px ;
-    font-family: Pacifico;
+    padding: 0 12px;
+    font-family: 'Pacifico', cursive;
 }
 
-nav ul{
-    list-style-type: none;
+.settings-panel {
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
 }
 
-.gameContainer{
-   
-    color: #00203FFF;
+.player-settings, .game-settings {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.player-input {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.player-input input {
+    padding: 5px 10px;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+}
+
+.theme-selector {
+    display: flex;
+    gap: 10px;
+}
+
+.theme-selector button {
+    padding: 5px 10px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    background-color: var(--secondary-bg);
+    color: var(--secondary-text);
+}
+
+.gameContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.scoreboard {
     display: flex;
     justify-content: center;
-    margin-top: 10vh;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
 }
 
-.container{
+.player-score {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 20px;
+    border-radius: 8px;
+}
+
+.x-player {
+    background-color: rgba(0, 32, 63, 0.1);
+}
+
+.o-player {
+    background-color: rgba(173, 239, 209, 0.3);
+}
+
+.player-score .score {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.vs {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.gameArea {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 20px;
+}
+
+.container {
     display: grid;
-    grid-template-rows: repeat(3, 10vw);
-    grid-template-columns: repeat(3, 10vw);
-    font-family: Nunito Sans;
+    grid-template-rows: repeat(3, min(20vw, 100px));
+    grid-template-columns: repeat(3, min(20vw, 100px));
     position: relative;
 }
-.box{
-    border: 3px solid black;
-    font-size: 8vw;
+
+.box {
+    border: 2px solid var(--border-color);
+    font-size: min(15vw, 70px);
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    user-select: none;
 }
-.box:hover{
-    background-color: rgb(135, 213, 178);
-}
-.info{
-    font-size: 22px;
-}
-.gameInfo{
-    padding: 0 34px;
-    font-family: Shadows Into Light;
-}
-.gameInfo h1{
-    font-size: 2.5rem;
-}   
-.imgbox img{
-    width: 0;
-    transition: width 1s ease-in-out;
-}
-.b-right-0{
-    border-right: 0;
-}
-.b-left-0{
-    border-left: 0;
-}
-.b-top-0{
-    border-top: 0;
-}
-.b-bottom-0{
-    border-bottom: 0;
-}
-#reset{
-    margin: 0 23px;
-    padding: 1px 18px;
-    border-radius: 6px;
-    cursor: pointer;
-    background-color: #00203FFF;
-    color: #ADEFD1FF;
-    font-family: Shadows Into Light;
-    font-size: 15px;
-    font-weight: bolder;
-}
-.line{
-    background-color: #00203FFF;
-    width: 0;
-    height: 0.5vh;
-    position: absolute;
-    transition: width 1s ease-in-out;
 
+.box:hover {
+    background-color: rgba(0, 0, 0, 0.05);
 }
-@media screen and (max-width: 950px)
-{
-  
-    .gameInfo{
-        margin-top: 34px;
+
+.info {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.gameInfo {
+    padding: 0 20px;
+    font-family: 'Shadows Into Light', cursive;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.gameInfo h1 {
+    font-size: 2rem;
+    text-align: center;
+}
+
+.imgbox img {
+    width: 0;
+    transition: width 1s ease-in-out;
+}
+
+.line {
+    background-color: var(--highlight-color);
+    width: 0;
+    height: 4px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all 0.5s ease-in-out;
+    transform-origin: left center;
+    z-index: 10;
+}
+
+#reset {
+    margin: 0 10px;
+    padding: 8px 20px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    background-color: var(--secondary-bg);
+    color: var(--secondary-text);
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#reset:hover {
+    opacity: 0.9;
+    transform: scale(1.05);
+}
+
+@media screen and (max-width: 768px) {
+    .gameArea {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
     }
-    .gameInfo h1{
+
+    .container {
+        grid-template-rows: repeat(3, 25vw);
+        grid-template-columns: repeat(3, 25vw);
+    }
+
+    .gameInfo {
+        padding: 0 10px;
+    }
+
+    .gameInfo h1 {
         font-size: 1.5rem;
     }
-    .container { 
-        grid-template-rows: repeat(3, 20vw);
-        grid-template-columns: repeat(3, 20vw);
-    }
-}   
 
-     
+    .scoreboard {
+        gap: 15px;
+        padding: 5px 10px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .settings-panel {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .container {
+        grid-template-rows: repeat(3, 28vw);
+        grid-template-columns: repeat(3, 28vw);
+    }
+
+    .box {
+        font-size: 20vw;
+    }
+}
